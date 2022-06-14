@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Homepage del gioco">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="./Images/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <title>The Acquarius Game</title>
+    </head>
+    <body style="overflow:hidden">
+        <div id="title"><div id="titleText">THE ACQUARIUS GAME</div></div>
+        <div id="bar">
+            <div id="gameButton">
+                <div id="gameButtonDiv">
+                    <button id="startButton" class="button">Start</button>
+                </div>
+            </div>
+            <div id="state">
+                <div id="stateDiv">
+                    <span id="stateSpan">Press START</span>
+                </div>
+            </div>
+            <div id="leaderboard">
+                <div id="leaderboardDiv">
+                    <button id="leaderboardButton" class="button" onclick="leaderBoardFunction()">Leaderboard</button>
+                </div>
+            </div>
+        </div>
+        <div id="game">
+            <div id="upperGame">
+                <div class="buttonContainer">
+                    <button class="pesceButton" id="button0">
+                    </button>
+                </div>
+                <div class="buttonContainer">
+                    <button class="pesceButton" id="button1">
+                    </button>
+                </div>
+                <div class="buttonContainer">
+                    <button class="pesceButton" id="button2">
+                    </button>
+                </div>
+                <div class="buttonContainer">
+                    <button class="pesceButton" id="button3">
+                    </button>
+                </div>
+            </div>
+            <div id="lowerGame">
+                <div class="buttonContainer">
+                    <button class="pesceButton" id="button4">
+                    </button>
+                </div>
+                <div class="buttonContainer">
+                    <button class="pesceButton" id="button5">
+                    </button>
+                </div>
+                <div class="buttonContainer">
+                    <button class="pesceButton" id="button6">
+                    </button>
+                </div>
+                <div class="buttonContainer">
+                    <button class="pesceButton" id="button7">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="statistics">
+            <div id="score">
+                <div id="scoreDiv">
+                    Score: <span id="scoreSpan">0</span>
+                </div>
+            </div>
+            <div id="level">
+                <div id="levelDiv">
+                    Level:<span id="levelSpan">1</span>
+                </div> 
+            </div>
+            <div id="record">
+                <div id ="recordDiv">
+                    Record:<span id="recordSpan">0</span>
+                </div>
+            </div>
+            <div id="time">
+                <div id ="timeDiv">
+                    Timer:<span id="timeSpan">00:00:00</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        
+        <div id="id01" class="w3-modal">
+            <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+        
+                <div class="w3-center"><br>
+                    <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+                    <img src="./Images/pesce2.webp" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+                </div>
+                <div>
+                    <p id="youLostP">YOU LOST!!!</p>
+                </div>
+                
+                <hr style="height:5px">
+        
+                <div>
+                    <p class="scoreRecordP" id="textModal">Final score: ...</p>
+                    <p class="scoreRecordP" id="textModal2">Level reached: ...</p>
+                    <br>
+                    <p class="scoreRecordP2">
+                        Keep up trying to beat your previous record!
+                        </p>
+                </div>
+                <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                    <p class="scoreRecordP2">Submit the record, so everyone know who's the best HERE!</p>
+                <div style="text-align: center;">
+                    <form action="#" id="formData"  action="javascript:void(0);" onsubmit="updatePHP(this);return false">
+                        <input type="text" name="names" id="names"/>
+                        <input type="hidden" name="scores" id="scores" value="score">
+                        <input type="hidden" name="levelss" id="levelss" value="level">
+                        <input type="hidden" name="times" id="times" value="time">
+                        <input type="submit"/>
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div id="id02" class="modal">
+            <iframe id="myIframe" class="center" src="leaderboard.php" style="width: 80%; height:40vw;"></iframe>
+        </div>
+
+
+
+      <script src="index.js"></script>
+    </body>
+</html>
