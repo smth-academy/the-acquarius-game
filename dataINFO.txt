@@ -1,0 +1,10 @@
+CREATE DATABASE acquariogame
+
+CREATE TABLE scores (
+    ID int PRIMARY KEY AUTO_INCREMENT,
+    username varchar(30) not null,
+    score int not null,
+    level int not null, 
+    time time not null
+)
+

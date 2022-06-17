@@ -12,10 +12,15 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <title>The Acquarius Game</title>
+        <title>The Aquarius Game</title>
     </head>
     <body style="overflow:hidden">
-        <div id="title"><div id="titleText">THE ACQUARIUS GAME</div></div>
+        <audio id="audio" loop autoplay>
+            <source src="./Audio/backgroundMusic.ogg" type="audio/ogg">
+            <source src="./Audio/background.mp3" type="audio/mp3">
+        </audio>
+        <!-- <embed src="./Audio/background.mp3" loop="true" autostart width="0" height="0"> -->
+        <div id="title"><div id="titleText">THE AQUARIUS GAME</div></div>
         <div id="bar">
             <div id="gameButton">
                 <div id="gameButtonDiv">
@@ -93,6 +98,15 @@
                 </div>
             </div>
         </div>
+        <div id="options">
+            <div id="optionsDiv" class="center">
+                Music:
+                <label class="switch">
+                    <input type="checkbox" id="musicSwitch">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
 
         <!-- MODAL -->
         
@@ -118,7 +132,7 @@
                         </p>
                 </div>
                 <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-                    <p class="scoreRecordP2">Submit the record, so everyone know who's the best HERE!</p>
+                    <p class="scoreRecordP2">Enter your username to save your score on the leaderboard!</p>
                 <div style="text-align: center;">
                     <form action="#" id="formData"  action="javascript:void(0);" onsubmit="updatePHP(this);return false">
                         <input type="text" name="names" id="names"/>
@@ -135,8 +149,15 @@
             <iframe id="myIframe" class="center" src="leaderboard.php" style="width: 80%; height:40vw;"></iframe>
         </div>
 
-
-
       <script src="index.js"></script>
+      <script>
+
+        var x = document.getElementById("audio");
+
+        const myTimeout = setTimeout(function(){
+            x.play();
+        }, 6000);
+      
+      </script>
     </body>
 </html>

@@ -13,6 +13,7 @@ const buttonOptionsArray = 2;
 const minCapMillis = 300
 
 //declaring various buttons and labels as constants for convenience
+const musicSwitch = document.getElementById("musicSwitch")
 const startButton = document.getElementById("startButton")
 const scoreLabel = document.getElementById("scoreSpan")
 const levelLabel = document.getElementById("levelSpan")
@@ -110,7 +111,7 @@ class myButtonGame{
         //Visual effect: if it's NOT the pc Turn you are able to see the yellow click effect of the buttons
         this.btn.onmousedown = function(){
             if(gameState.innerHTML == "Your turn" || gameState.innerHTML == "Press START"){
-                document.getElementById(this.id).style.backgroundColor = "yellow"
+                document.getElementById(this.id).style.backgroundColor = "blue"
             }
         }
         this.btn.onmouseup = function(){
@@ -193,6 +194,10 @@ function inizializeButtons(){
     let cnt = 0
     let tempButton
 
+    musicSwitch.checked = true
+    // musicSwitch.toggle()
+    gameState.style.color = "red"
+
     /*
         The buttons game (5 fish buttons) have a particoular ID, they start all with
         "buttongame" and to distinguish them there is an unique number at the end
@@ -254,6 +259,7 @@ function runSequence(){
         */
         setTimeout("SequenceisRunning = false", millisDifficoulty + 100)
         setTimeout("gameState.innerHTML = `Your turn`", millisDifficoulty + 100)
+        setTimeout("gameState.style.color = 'blue'", millisDifficoulty + 100)
         setTimeout("canPressSequenceButtons = true", millisDifficoulty + 100)
         return
     }
@@ -271,6 +277,7 @@ function resetGame(){
 
     //Resetting all the flags, arrays , saving score, rewriting the labels ecc.
     gameState.innerHTML = "Press START"
+    gameState.style.color = "red"
     startButton.innerHTML = "Start"
     score = 0
     scoreLabel.innerHTML = score
@@ -343,6 +350,7 @@ function startLevel(){
     //setting flags and turn
     SequenceisRunning = true
     gameState.innerHTML = "PC turn"
+    gameState.style.color = "yellow"
     canPressStart = false
 
 
@@ -360,6 +368,8 @@ function startLevel(){
     and provide the playar to play the game
 */
 inizializeButtons()
+
+var x = document.getElementById("audio");
 
 // Get the modal
 var modal = document.getElementById("id02");
@@ -413,3 +423,21 @@ function updatePHP(event) {
     // Send params with request
     http.send(params);
 }
+
+musicSwitch.addEventListener('change', function(){
+    if(!musicSwitch.checked){
+        const elems = document.querySelectorAll("video, audio");
+        for (const el of elems) {
+          el.muted = true
+          el.pause()
+        }
+    }
+    else{
+        const elems = document.querySelectorAll("video, audio");
+        for (const el of elems) {
+          el.muted = false
+          el.play()
+        }
+    }
+})
+

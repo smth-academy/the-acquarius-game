@@ -39,7 +39,7 @@ body{
 }
 
 #game{
-    height:60%;
+    height: 55%;
     width:100%;
     
 }
@@ -49,6 +49,15 @@ body{
     width: 100%;
 
 }
+
+#options{
+    height: 5%;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    font-size: 200%;
+}
+
 
 #titleText{
     position: absolute;
@@ -114,7 +123,7 @@ body{
     background-image: url("./Images/legno2.webp");
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 45% 100%;
+    background-size: 55% 100%;
     position: relative;
     width: 25%;
     height: 100%;
@@ -126,7 +135,7 @@ body{
     background-image: url("./Images/legno2.webp");
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 40% 100%;
+    background-size: 55% 100%;
     position: relative;
     width: 25%;
     height: 100%;
@@ -137,7 +146,7 @@ body{
     background-image: url("./Images/legno2.webp");
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 50% 100%;
+    background-size: 60% 100%;
     position: relative;
     width: 25%; 
     height: 100%;
@@ -148,7 +157,7 @@ body{
     background-image: url("./Images/legno2.webp");
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 75% 100%;
+    background-size: 85% 100%;
     position: relative;
     width: 25%; 
     height: 100%;
@@ -431,3 +440,64 @@ td{
       text-align: center;
   }
 
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: chocolate;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px chocolate;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
